@@ -37,12 +37,11 @@ class Drawing:
         c=self.color(key)
         self.parts.append(f'<polygon points="{x},{y} {x+25},{y+12} {x+25},{y+h-12} {x},{y+h}" fill="white" stroke="{c}" stroke-width="1.5"/>')
         if three:
-            for dy,s in [(20,'00'),(h/2+5,'01'),(h-9,'10')]:self.text(x+2,y+dy,s,'small',c)
+            for dy,label_value in [(20,'00'),(h/2+5,'01'),(h-9,'10')]:
+                self.text(x+2,y+dy,label_value,'small',c)
         else:
-            if three:
-            for dy,s in [(20,'00'),(h/2+5,'01'),(h-9,'10')]: self.text(x+2,y+dy,s,'small',c)
-        else:
-            self.text(x+5,y+20,'0','small',c); self.text(x+5,y+h-9,'1','small',c)
+            self.text(x+5,y+20,'0','small',c)
+            self.text(x+5,y+h-9,'1','small',c)
         if label:self.text(x+12,y+h+17,label,'sig',c,'middle')
     def dot(self,key,x,y):
         self.parts.append(f'<circle cx="{x}" cy="{y}" r="3" fill="{self.color(key)}"/>')
@@ -86,8 +85,6 @@ def datapath(kind=None):
     d.wire('fetch',[(175,455),(205,455)])
     d.wire('instr',[(335,455),(380,455)],'InstrF',(336,447))
     d.wire('instr',[(408,455),(500,455)],'Rs1/2',(414,442))
-    d.dot('instr',430,455)
-    d.wire('instr',[(450,455),(450,495),(500,495)])
     d.wire('instr',[(450,455),(450,495),(500,495)])
     d.wire('instr',[(450,455),(450,685),(525,685)],'InstrD',(454,652))
     d.dot('instr',450,455)

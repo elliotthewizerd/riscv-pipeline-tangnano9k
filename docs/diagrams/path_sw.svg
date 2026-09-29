@@ -84,9 +84,9 @@
 <text x="726" y="733" class="sig" fill="#126b45" text-anchor="start">PC4D</text>
 <path d="M408,775 L810,775" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
 <text x="726" y="768" class="sig" fill="#126b45" text-anchor="start">PCD</text>
-<path d="M450,620 L810,620" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
-<text x="565" y="611" class="sig" fill="#126b45" text-anchor="start">Rs1D / Rs2D / RdD / F3D</text>
-<circle cx="450" cy="620" r="3" fill="#126b45"/>
+<path d="M450,640 L810,640" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="555" y="630" class="sig" fill="#126b45" text-anchor="start">Rs1D / Rs2D / RdD / F3D</text>
+<circle cx="450" cy="640" r="3" fill="#126b45"/>
 <path d="M838,455 L910,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
 <text x="841" y="440" class="sig" fill="#126b45" text-anchor="start">RD1E</text>
 <path d="M838,545 L910,545" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
@@ -132,7 +132,7 @@
 <text x="1130" y="827" class="sig" fill="#c4c9ce" text-anchor="start">TargetE</text>
 <path d="M838,740 L870,740 L870,790 L1340,790" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
 <text x="900" y="778" class="sig" fill="#126b45" text-anchor="start">PC4E</text>
-<path d="M838,620 L890,620 L890,810 L1330,810 L1330,700 L1340,700" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<path d="M838,640 L890,640 L890,810 L1330,810 L1330,700 L1340,700" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
 <text x="1265" y="799" class="sig" fill="#126b45" text-anchor="start">RdE</text>
 <path d="M1368,500 L1470,500" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
 <text x="1380" y="482" class="sig" fill="#126b45" text-anchor="start">ALUM / A</text>
@@ -166,9 +166,10 @@
 <path d="M885,575 L910,575" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
 <circle cx="885" cy="575" r="3" fill="#c4c9ce"/>
 <path d="M1800,925 L900,925 L900,480 L910,480" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<circle cx="1800" cy="925" r="3" fill="#c4c9ce"/>
 <path d="M900,563 L910,563" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
 <circle cx="900" cy="563" r="3" fill="#c4c9ce"/>
-<path d="M710,620 L710,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<path d="M710,640 L710,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
 <text x="548" y="993" class="sig" fill="#c4c9ce" text-anchor="start">Rs1/2D, Use1/2D</text>
 <path d="M855,810 L855,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
 <text x="860" y="993" class="sig" fill="#c4c9ce" text-anchor="start">Rs1/2E, RdE, LoadE, Use1/2E</text>

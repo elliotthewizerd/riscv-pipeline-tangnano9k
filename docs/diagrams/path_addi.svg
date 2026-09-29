@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1200" viewBox="0 0 2000 1200"><title>addi x5, x1, 7</title>
+<defs><marker id="ink" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#20252b"/></marker><marker id="ctrl" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#245c89"/></marker><marker id="active" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#126b45"/></marker><marker id="muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#c4c9ce"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;font-size:15px} .sig{font-family:Consolas,monospace;font-size:13px} .small{font-size:12px} .title{font-size:27px;font-weight:bold} .stage{font-size:18px;font-weight:bold} path,rect,line,polygon{vector-effect:non-scaling-stroke}</style>
+<text x="32" y="40" class="title" fill="#20252b" text-anchor="start">addi x5, x1, 7</text>
+<text x="32" y="68" class="" fill="#20252b" text-anchor="start">Forwarded rs1 + sign-extended I immediate -&gt; ALU -&gt; ResultW -&gt; rd.</text>
+<text x="150" y="110" class="stage" fill="#20252b" text-anchor="start">IF</text>
+<text x="555" y="110" class="stage" fill="#20252b" text-anchor="start">ID</text>
+<text x="1070" y="110" class="stage" fill="#20252b" text-anchor="start">EX</text>
+<text x="1510" y="110" class="stage" fill="#20252b" text-anchor="start">MEM</text>
+<text x="1840" y="110" class="stage" fill="#20252b" text-anchor="start">WB</text>
+<rect x="380" y="150" width="28" height="655" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="394.0" y="482.5" class="" fill="#126b45" text-anchor="middle"></text>
+<text x="394" y="135" class="sig" fill="#126b45" text-anchor="middle">IF/ID</text>
+<text x="394" y="826" class="sig" fill="#126b45" text-anchor="middle">clk</text>
+<rect x="810" y="150" width="28" height="655" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="824.0" y="482.5" class="" fill="#126b45" text-anchor="middle"></text>
+<text x="824" y="135" class="sig" fill="#126b45" text-anchor="middle">ID/EX</text>
+<text x="824" y="826" class="sig" fill="#126b45" text-anchor="middle">clk</text>
+<rect x="1340" y="150" width="28" height="655" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="1354.0" y="482.5" class="" fill="#126b45" text-anchor="middle"></text>
+<text x="1354" y="135" class="sig" fill="#126b45" text-anchor="middle">EX/MEM</text>
+<text x="1354" y="826" class="sig" fill="#126b45" text-anchor="middle">clk</text>
+<rect x="1710" y="150" width="28" height="655" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="1724.0" y="482.5" class="" fill="#126b45" text-anchor="middle"></text>
+<text x="1724" y="135" class="sig" fill="#126b45" text-anchor="middle">MEM/WB</text>
+<text x="1724" y="826" class="sig" fill="#126b45" text-anchor="middle">clk</text>
+<path d="M430,455 L430,200 L495,200" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="432" y="178" class="sig" fill="#126b45" text-anchor="start">Op / F3 / F7</text>
+<circle cx="430" cy="455" r="3" fill="#126b45"/>
+<path d="M675,170 L810,170" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="684" y="163" class="sig" fill="#126b45" text-anchor="start">RegW</text>
+<path d="M675,200 L810,200" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="684" y="193" class="sig" fill="#126b45" text-anchor="start">MemW</text>
+<path d="M675,230 L810,230" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="684" y="223" class="sig" fill="#126b45" text-anchor="start">ResSrc[1:0]</text>
+<path d="M675,260 L810,260" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="684" y="253" class="sig" fill="#126b45" text-anchor="start">ALUOp[3:0]</text>
+<path d="M675,290 L810,290" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="684" y="283" class="sig" fill="#126b45" text-anchor="start">ALUSrc / ASrc</text>
+<path d="M675,320 L810,320" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="684" y="313" class="sig" fill="#126b45" text-anchor="start">Br / Jmp / Jr</text>
+<path d="M838,170 L1340,170" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1220" y="163" class="sig" fill="#126b45" text-anchor="start">RegW</text>
+<path d="M838,200 L1340,200" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1220" y="193" class="sig" fill="#126b45" text-anchor="start">MemW</text>
+<path d="M838,230 L1340,230" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1220" y="223" class="sig" fill="#126b45" text-anchor="start">ResSrc</text>
+<path d="M1368,170 L1710,170" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1480" y="163" class="sig" fill="#126b45" text-anchor="start">RegWM</text>
+<path d="M1368,230 L1710,230" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1480" y="223" class="sig" fill="#126b45" text-anchor="start">ResSrcM</text>
+<path d="M1738,230 L1883,230 L1883,465" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1752" y="223" class="sig" fill="#126b45" text-anchor="start">ResSrcW</text>
+<path d="M1368,200 L1565,200 L1565,425" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1465" y="193" class="sig" fill="#126b45" text-anchor="start">MemWM</text>
+<path d="M675,350 L700,350 L700,685 L665,685" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="693" y="363" class="sig" fill="#126b45" text-anchor="start">ImmSrc</text>
+<path d="M90,455 L130,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<path d="M175,455 L205,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<path d="M335,455 L380,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="336" y="440" class="sig" fill="#126b45" text-anchor="start">InstrF</text>
+<path d="M408,455 L500,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="414" y="435" class="sig" fill="#126b45" text-anchor="start">Rs1/2</text>
+<path d="M450,455 L450,495 L500,495" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<path d="M450,455 L450,685 L525,685" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="454" y="645" class="sig" fill="#126b45" text-anchor="start">InstrD</text>
+<circle cx="450" cy="455" r="3" fill="#126b45"/>
+<path d="M188,455 L188,615 L225,615" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<path d="M295,615 L330,615 L330,740 L380,740" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="307" y="720" class="sig" fill="#126b45" text-anchor="start">PC4F</text>
+<path d="M330,615 L345,615 L345,350 L45,350 L45,440 L65,440" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<circle cx="330" cy="615" r="3" fill="#126b45"/>
+<path d="M188,590 L350,590 L350,775 L380,775" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="311" y="760" class="sig" fill="#126b45" text-anchor="start">PCF</text>
+<circle cx="188" cy="590" r="3" fill="#126b45"/>
+<path d="M665,455 L810,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="721" y="448" class="sig" fill="#126b45" text-anchor="start">RD1D</text>
+<path d="M665,545 L810,545" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="721" y="538" class="sig" fill="#c4c9ce" text-anchor="start">RD2D</text>
+<path d="M665,685 L680,685 L680,705 L810,705" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="729" y="698" class="sig" fill="#126b45" text-anchor="start">ImmD</text>
+<path d="M408,740 L810,740" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="726" y="733" class="sig" fill="#126b45" text-anchor="start">PC4D</text>
+<path d="M408,775 L810,775" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="726" y="768" class="sig" fill="#126b45" text-anchor="start">PCD</text>
+<path d="M450,620 L810,620" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="565" y="611" class="sig" fill="#126b45" text-anchor="start">Rs1D / Rs2D / RdD / F3D</text>
+<circle cx="450" cy="620" r="3" fill="#126b45"/>
+<path d="M838,455 L910,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="841" y="440" class="sig" fill="#126b45" text-anchor="start">RD1E</text>
+<path d="M838,545 L910,545" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="841" y="530" class="sig" fill="#c4c9ce" text-anchor="start">RD2E</text>
+<path d="M935,468 L975,468 L975,455 L1030,455" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="949" y="444" class="sig" fill="#126b45" text-anchor="start">AE</text>
+<path d="M935,558 L1030,558" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="971" y="543" class="sig" fill="#c4c9ce" text-anchor="start">BE</text>
+<path d="M1055,468 L1135,468" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1062" y="449" class="sig" fill="#126b45" text-anchor="start">SrcAE</text>
+<path d="M1055,563 L1095,563 L1095,530 L1135,530" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1060" y="545" class="sig" fill="#126b45" text-anchor="start">SrcBE</text>
+<path d="M838,705 L1000,705 L1000,585 L1030,585" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="862" y="691" class="sig" fill="#126b45" text-anchor="start">ImmE</text>
+<path d="M838,775 L990,775 L990,485 L1030,485" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<path d="M838,260 L1200,260 L1200,425" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1122" y="253" class="sig" fill="#126b45" text-anchor="start">ALUOpE</text>
+<path d="M838,290 L1042,290 L1042,438" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="913" y="283" class="sig" fill="#126b45" text-anchor="start">ASrcE</text>
+<path d="M1090,290 L1090,620 L1042,620 L1042,598" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1098" y="595" class="sig" fill="#126b45" text-anchor="start">ALUSrcE</text>
+<path d="M1042,290 L1090,290" fill="none" stroke="#126b45" stroke-width="2.6"/>
+<path d="M1270,500 L1340,500" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1278" y="485" class="sig" fill="#126b45" text-anchor="start">ALUE</text>
+<path d="M965,558 L965,650 L1340,650" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1200" y="639" class="sig" fill="#c4c9ce" text-anchor="start">WD = BE</text>
+<circle cx="965" cy="558" r="3" fill="#c4c9ce"/>
+<path d="M975,468 L975,375 L1100,375" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<path d="M950,558 L950,395 L1100,395" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<path d="M1230,380 L1305,380 L1305,335" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1234" y="364" class="sig" fill="#c4c9ce" text-anchor="start">TakeE</text>
+<path d="M838,320 L1250,320" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1010" y="308" class="sig" fill="#c4c9ce" text-anchor="start">BrE / JmpE</text>
+<path d="M1320,320 L1328,320 L1328,125 L77,125 L77,422" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="140" y="118" class="sig" fill="#c4c9ce" text-anchor="start">PCSrcE</text>
+<path d="M990,760 L1110,760" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1048" y="747" class="sig" fill="#c4c9ce" text-anchor="start">PCE</text>
+<path d="M1000,705 L1110,705" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1030" y="691" class="sig" fill="#c4c9ce" text-anchor="start">ImmE</text>
+<path d="M975,468 L980,468 L980,725 L1110,725" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1007" y="718" class="sig" fill="#c4c9ce" text-anchor="start">AE (jalr)</text>
+<path d="M1270,745 L1310,745 L1310,835 L30,835 L30,480 L65,480" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1130" y="827" class="sig" fill="#c4c9ce" text-anchor="start">TargetE</text>
+<path d="M838,740 L870,740 L870,790 L1340,790" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="900" y="778" class="sig" fill="#126b45" text-anchor="start">PC4E</text>
+<path d="M838,620 L890,620 L890,810 L1330,810 L1330,700 L1340,700" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1265" y="799" class="sig" fill="#126b45" text-anchor="start">RdE</text>
+<path d="M1368,500 L1470,500" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1380" y="482" class="sig" fill="#c4c9ce" text-anchor="start">ALUM / A</text>
+<path d="M1368,650 L1430,650 L1430,590 L1470,590" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1377" y="631" class="sig" fill="#c4c9ce" text-anchor="start">WDM / WD</text>
+<path d="M1630,505 L1710,505" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1650" y="491" class="sig" fill="#c4c9ce" text-anchor="start">RDM</text>
+<path d="M1400,500 L1400,385 L1680,385 L1680,440 L1710,440" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1530" y="375" class="sig" fill="#126b45" text-anchor="start">ALUM</text>
+<circle cx="1400" cy="500" r="3" fill="#c4c9ce"/>
+<path d="M1368,790 L1710,790" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1560" y="775" class="sig" fill="#126b45" text-anchor="start">PC4M</text>
+<path d="M1368,700 L1710,700" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1560" y="686" class="sig" fill="#126b45" text-anchor="start">RdM</text>
+<path d="M1738,440 L1810,440 L1810,485 L1870,485" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1748" y="424" class="sig" fill="#126b45" text-anchor="start">ALUW</text>
+<path d="M1738,505 L1870,505" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1790" y="491" class="sig" fill="#c4c9ce" text-anchor="start">RDW</text>
+<path d="M1738,790 L1840,790 L1840,528 L1870,528" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1760" y="775" class="sig" fill="#126b45" text-anchor="start">PC4W</text>
+<path d="M1895,505 L1955,505 L1955,925 L470,925 L470,570 L500,570" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1660" y="910" class="sig" fill="#126b45" text-anchor="start">ResultW / WD</text>
+<path d="M1738,700 L1765,700 L1765,965 L485,965 L485,605 L500,605" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1540" y="950" class="sig" fill="#126b45" text-anchor="start">RdW / A3</text>
+<path d="M1738,170 L1970,170 L1970,985 L455,985 L455,585 L500,585" fill="none" stroke="#126b45" stroke-width="2.6" marker-end="url(#active)"/>
+<text x="1700" y="971" class="sig" fill="#126b45" text-anchor="start">RegWW / WE</text>
+<path d="M1400,385 L1400,355 L1490,355" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<path d="M1450,790 L1450,400 L1502,400 L1502,380" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<path d="M1515,355 L1660,355 L1660,870 L885,870 L885,493 L910,493" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1200" y="856" class="sig" fill="#c4c9ce" text-anchor="start">FwdM = (ResSrcM==2) ? PC4M : ALUM</text>
+<path d="M885,575 L910,575" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<circle cx="885" cy="575" r="3" fill="#c4c9ce"/>
+<path d="M1800,925 L900,925 L900,480 L910,480" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<path d="M900,563 L910,563" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<circle cx="900" cy="563" r="3" fill="#c4c9ce"/>
+<path d="M710,620 L710,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="548" y="993" class="sig" fill="#c4c9ce" text-anchor="start">Rs1/2D, Use1/2D</text>
+<path d="M855,810 L855,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="860" y="993" class="sig" fill="#c4c9ce" text-anchor="start">Rs1/2E, RdE, LoadE, Use1/2E</text>
+<path d="M1600,700 L1600,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1420" y="993" class="sig" fill="#c4c9ce" text-anchor="start">RdM/W, RegWM/W, LoadM</text>
+<path d="M1328,320 L1332,320 L1332,1015" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="1340" y="958" class="sig" fill="#c4c9ce" text-anchor="start">PCSrcE</text>
+<path d="M500,1095 L155,1095 L155,500" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="167" y="1071" class="sig" fill="#c4c9ce" text-anchor="start">StallF</text>
+<path d="M620,1095 L394,1095 L394,805" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="405" y="1106" class="sig" fill="#c4c9ce" text-anchor="start">StallD / FlushD</text>
+<path d="M780,1095 L824,1095 L824,805" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="730" y="1125" class="sig" fill="#c4c9ce" text-anchor="start">FlushE</text>
+<path d="M930,1015 L930,945 L922,945 L922,585" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="944" y="942" class="sig" fill="#c4c9ce" text-anchor="start">FwdBE</text>
+<path d="M970,1015 L970,935 L940,935 L940,520 L922,520 L922,510" fill="none" stroke="#c4c9ce" stroke-width="1.3" marker-end="url(#muted)"/>
+<text x="978" y="960" class="sig" fill="#c4c9ce" text-anchor="start">FwdAE</text>
+<polygon points="65,420 90,432 90,488 65,500" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="70" y="440" class="small" fill="#126b45" text-anchor="start">0</text>
+<text x="70" y="491" class="small" fill="#126b45" text-anchor="start">1</text>
+<rect x="130" y="420" width="45" height="80" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="152.5" y="465.0" class="" fill="#126b45" text-anchor="middle">PC</text>
+<rect x="205" y="385" width="130" height="135" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="270.0" y="457.5" class="" fill="#126b45" text-anchor="middle">imem</text>
+<text x="213" y="458" class="sig" fill="#126b45" text-anchor="start">A</text>
+<text x="302" y="458" class="sig" fill="#126b45" text-anchor="start">RD</text>
+<rect x="225" y="585" width="70" height="60" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="260.0" y="620.0" class="" fill="#126b45" text-anchor="middle">+ 4</text>
+<rect x="495" y="145" width="180" height="215" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="585.0" y="257.5" class="" fill="#126b45" text-anchor="middle">control unit</text>
+<text x="505" y="337" class="sig" fill="#126b45" text-anchor="start">Use1 / Use2 / Legal</text>
+<rect x="500" y="415" width="165" height="205" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="582.5" y="522.5" class="" fill="#126b45" text-anchor="middle">regfile</text>
+<text x="508" y="457" class="sig" fill="#126b45" text-anchor="start">A1</text>
+<text x="508" y="497" class="sig" fill="#126b45" text-anchor="start">A2</text>
+<text x="625" y="457" class="sig" fill="#126b45" text-anchor="start">RD1</text>
+<text x="625" y="547" class="sig" fill="#126b45" text-anchor="start">RD2</text>
+<text x="508" y="569" class="sig" fill="#126b45" text-anchor="start">WD</text>
+<text x="508" y="588" class="sig" fill="#126b45" text-anchor="start">WE</text>
+<text x="508" y="607" class="sig" fill="#126b45" text-anchor="start">A3</text>
+<rect x="525" y="660" width="140" height="50" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="595.0" y="690.0" class="" fill="#126b45" text-anchor="middle">extend</text>
+<polygon points="910,435 935,447 935,498 910,510" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="912" y="455" class="small" fill="#126b45" text-anchor="start">00</text>
+<text x="912" y="477.5" class="small" fill="#126b45" text-anchor="start">01</text>
+<text x="912" y="501" class="small" fill="#126b45" text-anchor="start">10</text>
+<polygon points="910,525 935,537 935,588 910,600" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="912" y="545" class="small" fill="#c4c9ce" text-anchor="start">00</text>
+<text x="912" y="567.5" class="small" fill="#c4c9ce" text-anchor="start">01</text>
+<text x="912" y="591" class="small" fill="#c4c9ce" text-anchor="start">10</text>
+<polygon points="1030,435 1055,447 1055,488 1030,500" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="1035" y="455" class="small" fill="#126b45" text-anchor="start">0</text>
+<text x="1035" y="491" class="small" fill="#126b45" text-anchor="start">1</text>
+<polygon points="1030,540 1055,552 1055,593 1030,605" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="1035" y="560" class="small" fill="#126b45" text-anchor="start">0</text>
+<text x="1035" y="596" class="small" fill="#126b45" text-anchor="start">1</text>
+<rect x="1135" y="425" width="135" height="150" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="1202.5" y="505.0" class="" fill="#126b45" text-anchor="middle">ALU</text>
+<text x="1143" y="472" class="sig" fill="#126b45" text-anchor="start">A</text>
+<text x="1143" y="532" class="sig" fill="#126b45" text-anchor="start">B</text>
+<text x="1250" y="504" class="sig" fill="#126b45" text-anchor="start">Y</text>
+<rect x="1100" y="350" width="130" height="60" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="1165.0" y="385.0" class="" fill="#c4c9ce" text-anchor="middle">branch unit</text>
+<rect x="1250" y="303" width="70" height="32" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="1285.0" y="324.0" class="" fill="#c4c9ce" text-anchor="middle">OR/AND</text>
+<rect x="1110" y="680" width="160" height="95" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="1190.0" y="732.5" class="" fill="#c4c9ce" text-anchor="middle">target +</text>
+<text x="1118" y="797" class="small" fill="#c4c9ce" text-anchor="start">JrE: AE+Imm, bit0=0</text>
+<rect x="1470" y="425" width="160" height="210" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="1550.0" y="535.0" class="" fill="#c4c9ce" text-anchor="middle">dmem</text>
+<text x="1478" y="502" class="sig" fill="#c4c9ce" text-anchor="start">A</text>
+<text x="1598" y="508" class="sig" fill="#c4c9ce" text-anchor="start">RD</text>
+<text x="1478" y="595" class="sig" fill="#c4c9ce" text-anchor="start">WD</text>
+<text x="1555" y="447" class="sig" fill="#c4c9ce" text-anchor="start">WE</text>
+<polygon points="1490,330 1515,342 1515,368 1490,380" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="1495" y="350" class="small" fill="#c4c9ce" text-anchor="start">0</text>
+<text x="1495" y="371" class="small" fill="#c4c9ce" text-anchor="start">1</text>
+<polygon points="1870,465 1895,477 1895,533 1870,545" fill="white" stroke="#126b45" stroke-width="1.5"/>
+<text x="1872" y="485" class="small" fill="#126b45" text-anchor="start">00</text>
+<text x="1872" y="510.0" class="small" fill="#126b45" text-anchor="start">01</text>
+<text x="1872" y="536" class="small" fill="#126b45" text-anchor="start">10</text>
+<rect x="500" y="1015" width="1210" height="80" fill="white" stroke="#c4c9ce" stroke-width="1.5"/>
+<text x="1105.0" y="1060.0" class="" fill="#c4c9ce" text-anchor="middle">hazard unit</text>
+<text x="520" y="1080" class="small" fill="#c4c9ce" text-anchor="start">M &gt; W; x0 excluded; loads cannot forward from M; load-use inserts one bubble</text>
+<text x="32" y="1150" class="small" fill="#20252b" text-anchor="start">All pipeline registers: clk, rst. ce enables a CPU cycle. Valid bits gate writes and redirects. Lines crossing without a dot are not junctions.</text>
+<text x="32" y="1180" class="small" fill="#58616b" text-anchor="start">RV32 / 5-stage pipeline     |     Signal names follow rtl/     |     path_addi</text>
+</svg>

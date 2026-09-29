@@ -1,0 +1,30 @@
+PASS directed pause=0: 79 retirements; {'cycles': 115, 'stalls': 6, 'flushes': 13, 'ma': 7, 'mb': 8, 'wa': 7, 'wb': 1, 'paused': 0}
+PASS directed pause=1: 79 retirements; {'cycles': 161, 'stalls': 6, 'flushes': 13, 'ma': 7, 'mb': 8, 'wa': 7, 'wb': 1, 'paused': 46}
+PASS random seed=0: 185 retirements, 17 stalls
+PASS random seed=1: 172 retirements, 6 stalls
+PASS random seed=2: 189 retirements, 21 stalls
+PASS random seed=3: 187 retirements, 10 stalls
+PASS random seed=4: 177 retirements, 11 stalls
+PASS random seed=5: 185 retirements, 12 stalls
+PASS random seed=6: 188 retirements, 13 stalls
+PASS random seed=7: 169 retirements, 11 stalls
+PASS random seed=8: 182 retirements, 14 stalls
+PASS random seed=9: 178 retirements, 11 stalls
+PASS random seed=10: 191 retirements, 11 stalls
+PASS random seed=11: 181 retirements, 16 stalls
+PASS random seed=12: 189 retirements, 14 stalls
+PASS random seed=13: 178 retirements, 11 stalls
+PASS random seed=14: 180 retirements, 15 stalls
+PASS random seed=15: 187 retirements, 17 stalls
+PASS random seed=16: 184 retirements, 14 stalls
+PASS random seed=17: 183 retirements, 14 stalls
+PASS random seed=18: 182 retirements, 18 stalls
+PASS random seed=19: 184 retirements, 18 stalls
+PASS random seed=20: 183 retirements, 11 stalls
+PASS random seed=21: 185 retirements, 9 stalls
+PASS random seed=22: 175 retirements, 9 stalls
+PASS random seed=23: 182 retirements, 10 stalls
+PASS hazard: 20000 vectors including redirect priority, x0 and MEM/WB collision
+tests/tb_hazard.v:35: $finish called at 20000000 (1ps)
+PASS board: power-on, demo self-check, LED polarity, button reset, restart
+tests/tb_board.v:18: $finish called at 7080000 (1ps)

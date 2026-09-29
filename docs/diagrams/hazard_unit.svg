@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1080" viewBox="0 0 1500 1080"><title>Hazard unit</title>
+<defs><marker id="ink" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#20252b"/></marker><marker id="ctrl" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#245c89"/></marker><marker id="active" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#126b45"/></marker><marker id="muted" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#c4c9ce"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;font-size:15px} .sig{font-family:Consolas,monospace;font-size:13px} .small{font-size:12px} .title{font-size:27px;font-weight:bold} .stage{font-size:18px;font-weight:bold} path,rect,line,polygon{vector-effect:non-scaling-stroke}</style>
+<text x="32" y="40" class="title" fill="#20252b" text-anchor="start">Hazard unit</text>
+<text x="32" y="68" class="" fill="#20252b" text-anchor="start">Combinational logic; source-use flags prevent false dependencies on immediate bits.</text>
+<text x="50" y="125" class="stage" fill="#20252b" text-anchor="start">1. Forwarding (each EX source, A and B)</text>
+<rect x="50" y="170" width="220" height="135" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="160.0" y="242.5" class="" fill="#20252b" text-anchor="middle">RsE / UseE</text>
+<rect x="375" y="160" width="325" height="100" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="537.5" y="215.0" class="" fill="#20252b" text-anchor="middle">M match: RegWM &amp; RdM=RsE</text>
+<rect x="375" y="300" width="325" height="100" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="537.5" y="355.0" class="" fill="#20252b" text-anchor="middle">W match: RegWW &amp; RdW=RsE</text>
+<rect x="825" y="170" width="290" height="230" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="970.0" y="290.0" class="" fill="#20252b" text-anchor="middle">M has priority over W</text>
+<rect x="1220" y="180" width="215" height="200" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="1327.5" y="285.0" class="" fill="#20252b" text-anchor="middle">FwdAE / FwdBE</text>
+<path d="M270,210 L375,210" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M300,210 L300,350 L375,350" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M700,210 L825,210" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M700,350 L825,350" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M1115,275 L1220,275" fill="none" stroke="#245c89" stroke-width="1.3" marker-end="url(#ctrl)"/>
+<text x="850" y="430" class="sig" fill="#20252b" text-anchor="start">UseE=0 or RsE=0: 00</text>
+<text x="1229" y="410" class="sig" fill="#20252b" text-anchor="start">00: RD1E / RD2E</text>
+<text x="1229" y="435" class="sig" fill="#20252b" text-anchor="start">01: ResultW</text>
+<text x="1229" y="460" class="sig" fill="#20252b" text-anchor="start">10: FwdM</text>
+<text x="50" y="445" class="sig" fill="#20252b" text-anchor="start">M match + LoadM: 00 (interlock prevents this consumer from reaching EX).</text>
+<text x="50" y="472" class="sig" fill="#20252b" text-anchor="start">FwdM selects ALUM or PC4M; a load address is never forwarded as loaded data.</text>
+<text x="50" y="535" class="stage" fill="#20252b" text-anchor="start">2. Load-use interlock</text>
+<rect x="50" y="575" width="290" height="140" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="195.0" y="650.0" class="" fill="#20252b" text-anchor="middle">Decode sources</text>
+<text x="60" y="610" class="sig" fill="#20252b" text-anchor="start">Use1D &amp; Rs1D=RdE</text>
+<text x="60" y="695" class="sig" fill="#20252b" text-anchor="start">Use2D &amp; Rs2D=RdE</text>
+<rect x="430" y="610" width="90" height="60" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="475.0" y="645.0" class="" fill="#20252b" text-anchor="middle">OR</text>
+<rect x="645" y="595" width="300" height="90" fill="white" stroke="#20252b" stroke-width="1.5"/>
+<text x="795.0" y="645.0" class="" fill="#20252b" text-anchor="middle">AND</text>
+<path d="M340,610 L430,625" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M340,695 L390,695 L390,655 L430,655" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M520,640 L645,640" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<path d="M795,555 L795,595" fill="none" stroke="#20252b" stroke-width="1.3" marker-end="url(#ink)"/>
+<text x="704" y="543" class="sig" fill="#20252b" text-anchor="start">LoadE &amp; RdE!=0</text>
+<path d="M945,640 L1230,640" fill="none" stroke="#245c89" stroke-width="1.3" marker-end="url(#ctrl)"/>
+<text x="1040" y="622" class="sig" fill="#245c89" text-anchor="start">lwStall</text>
+<text x="50" y="770" class="stage" fill="#20252b" text-anchor="start">3. Redirect and pipeline actions</text>
+<rect x="50" y="810" width="400" height="90" fill="white" stroke="#245c89" stroke-width="1.5"/>
+<text x="250.0" y="860.0" class="" fill="#245c89" text-anchor="middle">PCSrcE = VE &amp; (JmpE | BrE &amp; TakeE)</text>
+<path d="M450,855 L560,855" fill="none" stroke="#245c89" stroke-width="1.3" marker-end="url(#ctrl)"/>
+<rect x="560" y="800" width="875" height="165" fill="white" stroke="#245c89" stroke-width="1.5"/>
+<text x="997.5" y="887.5" class="" fill="#245c89" text-anchor="middle"></text>
+<text x="590" y="835" class="sig" fill="#245c89" text-anchor="start">StallF = StallD = lwStall &amp; !PCSrcE</text>
+<text x="590" y="875" class="sig" fill="#245c89" text-anchor="start">FlushD = PCSrcE</text>
+<text x="590" y="915" class="sig" fill="#245c89" text-anchor="start">FlushE = lwStall | PCSrcE</text>
+<text x="50" y="1007" class="sig" fill="#20252b" text-anchor="start">Load-use: hold PC and IF/ID, clear ID/EX. Taken redirect: load target PC, clear IF/ID and ID/EX.</text>
+<text x="32" y="1060" class="small" fill="#58616b" text-anchor="start">RV32 / 5-stage pipeline     |     Signal names follow rtl/     |     hazard_unit</text>
+</svg>

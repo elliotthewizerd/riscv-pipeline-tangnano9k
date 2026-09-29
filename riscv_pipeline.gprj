@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="rtl/adder.v" type="file.verilog" enable="1"/>
+        <File path="rtl/alu.v" type="file.verilog" enable="1"/>
+        <File path="rtl/branch_unit.v" type="file.verilog" enable="1"/>
+        <File path="rtl/control_unit.v" type="file.verilog" enable="1"/>
+        <File path="rtl/dmem.v" type="file.verilog" enable="1"/>
+        <File path="rtl/ex_mem.v" type="file.verilog" enable="1"/>
+        <File path="rtl/extend.v" type="file.verilog" enable="1"/>
+        <File path="rtl/hazard_unit.v" type="file.verilog" enable="1"/>
+        <File path="rtl/id_ex.v" type="file.verilog" enable="1"/>
+        <File path="rtl/if_id.v" type="file.verilog" enable="1"/>
+        <File path="rtl/imem.v" type="file.verilog" enable="1"/>
+        <File path="rtl/mem_wb.v" type="file.verilog" enable="1"/>
+        <File path="rtl/mux2.v" type="file.verilog" enable="1"/>
+        <File path="rtl/mux3.v" type="file.verilog" enable="1"/>
+        <File path="rtl/pc_reg.v" type="file.verilog" enable="1"/>
+        <File path="rtl/regfile.v" type="file.verilog" enable="1"/>
+        <File path="rtl/reset_sync.v" type="file.verilog" enable="1"/>
+        <File path="rtl/riscv_core.v" type="file.verilog" enable="1"/>
+        <File path="rtl/soc.v" type="file.verilog" enable="1"/>
+        <File path="rtl/tangnano9k_top.v" type="file.verilog" enable="1"/>
+        <File path="constraints/tangnano9k.cst" type="file.cst" enable="1"/>
+        <File path="constraints/tangnano9k.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

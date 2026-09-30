@@ -4,46 +4,6 @@ CPU RV32 5 tầng **IF → ID → EX → MEM → WB**, viết bằng Verilog, m�
 
 Đây là lõi học tập dùng một phần tập lệnh RV32I, không phải triển khai RV32I đầy đủ. Hỗ trợ `lw`, `sw`, toàn bộ 6 branch, `jal`, `jalr`, `lui`, `auipc`, các phép ALU thanh ghi/immediate. `j label` được assembler chuyển thành `jal x0, label`. Chưa có byte/halfword load/store, CSR, trap, interrupt, `ecall`, `ebreak`, `fence`, extension M/C, cache hay bus có wait-state.
 
-## Sơ đồ tổng thể
-
-![Pipeline với forwarding, stall và flush](docs/diagrams/pipeline_full.svg)
-
-[Mở SVG kích thước đầy đủ](docs/diagrams/pipeline_full.svg). Các sơ đồ được dựng mới bằng tọa độ vector, nét đen/xanh trên nền trắng, không dùng ảnh chụp từ sách. Mã nguồn để chỉnh sửa: [`scripts/draw_diagrams.py`](scripts/draw_diagrams.py). SVG mở được trong trình duyệt hoặc Inkscape.
-
-## Control unit và hazard unit
-
-![Control unit](docs/diagrams/control_unit.svg)
-
-![Hazard unit](docs/diagrams/hazard_unit.svg)
-
-## Đường đi của từng lệnh
-
-Đường màu xanh lá thể hiện phần datapath dùng cho lệnh; phần còn lại màu xám. Các đường forwarding được chọn tùy quan hệ phụ thuộc với lệnh phía trước. [Giải thích từng bước và bảng chu kỳ](docs/architecture.md).
-
-### `lw`
-
-![Đường đi lw](docs/diagrams/path_lw.svg)
-
-### `sw`
-
-![Đường đi sw](docs/diagrams/path_sw.svg)
-
-### `j`
-
-![Đường đi j](docs/diagrams/path_j.svg)
-
-### Branch
-
-![Đường đi branch](docs/diagrams/path_branch.svg)
-
-### `add`
-
-![Đường đi add](docs/diagrams/path_add.svg)
-
-### `addi`
-
-![Đường đi addi](docs/diagrams/path_addi.svg)
-
 ## Chạy mô phỏng
 
 Cần Python 3.10+ và Icarus Verilog (`iverilog`, `vvp`) trong PATH. Chạy từ thư mục gốc dự án:
@@ -82,9 +42,9 @@ python scripts/asm.py programs/demo.S programs/demo.hex
 | `rtl/` | 20 module Verilog, mỗi file một module |
 | `programs/demo.S`, `demo.hex`, `demo.lst` | ASM demo, ROM hex, bảng địa chỉ/mã máy |
 | `tests/` | Testbench core, hazard, board và ASM kiểm tra |
-| `scripts/` | Assembler, regression, sinh sơ đồ, build Gowin |
+| `scripts/` | Assembler, regression và build Gowin |
 | `constraints/` | Pin `.cst`, clock `.sdc` |
-| `docs/diagrams/` | 9 sơ đồ SVG |
+
 | `riscv_pipeline.gprj` | Project mở bằng Gowin IDE |
 
 Tài liệu kiến trúc lệnh được đối chiếu với [RISC-V RV32I specification](https://docs.riscv.org/reference/isa/v20260120/unpriv/rv32.html). Thông tin board theo [Sipeed Tang Nano 9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html) và [schematic chính thức](https://dl.sipeed.com/fileList/TANG/Nano%209K/2_Schematic/Tang_Nano_9k_3672_Schematic.pdf).

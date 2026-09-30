@@ -44,7 +44,7 @@ python scripts/asm.py programs/demo.S programs/demo.hex
 | `tests/` | Testbench core, hazard, board và ASM kiểm tra |
 | `scripts/` | Assembler, regression và build Gowin |
 | `constraints/` | Pin `.cst`, clock `.sdc` |
-
+| `docs/` | Kiến trúc, hướng dẫn Tang Nano và kết quả kiểm chứng |
 | `riscv_pipeline.gprj` | Project mở bằng Gowin IDE |
 
 Tài liệu kiến trúc lệnh được đối chiếu với [RISC-V RV32I specification](https://docs.riscv.org/reference/isa/v20260120/unpriv/rv32.html). Thông tin board theo [Sipeed Tang Nano 9K](https://wiki.sipeed.com/hardware/en/tang/Tang-Nano-9K/Nano-9K.html) và [schematic chính thức](https://dl.sipeed.com/fileList/TANG/Nano%209K/2_Schematic/Tang_Nano_9k_3672_Schematic.pdf).

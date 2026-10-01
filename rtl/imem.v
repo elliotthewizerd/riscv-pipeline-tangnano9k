@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module imem #(parameter WORDS = 256, parameter INIT = "programs/demo.hex")
+module imem #(parameter WORDS = 256, parameter INIT = "")
        (input [31:0] A, output [31:0] RD);
   reg [31:0] mem [0:WORDS-1];
   integer i;

@@ -1,4 +1,5 @@
 """Compile RTL, compare retirement/store traces with a sequential ISA model."""
+import argparse
 import random
 import re
 import subprocess
@@ -68,12 +69,16 @@ def run(args):
         raise RuntimeError(proc.stdout+proc.stderr)
     return proc.stdout+proc.stderr
 
-def check(name, source, pause=0, expected_stalls=None):
+def check(name, source, pause=0, expected_stalls=None, wave=False):
     words, labels, _=assemble(source)
+    if 'halt' not in labels:
+        raise ValueError("Assembly test needs a reachable 'halt:' label.")
     path=BUILD/(name+'.hex')
     write_hex(words,path)
     expected, stores, regs=reference(words,labels['halt'])
-    out=run(['vvp',str(BUILD/'core.vvp'),f'+ROM=build/{name}.hex',f'+STOP={labels["halt"]}',f'+PAUSE={pause}'])
+    sim_args=['vvp',str(BUILD/'core.vvp'),f'+ROM=build/{name}.hex',f'+STOP={labels["halt"]}',f'+PAUSE={pause}']
+    if wave: sim_args.append('+VCD')
+    out=run(sim_args)
     (BUILD/(name+'.trace')).write_text(out)
     actual, actual_stores=[],[]
     for line in out.splitlines():
@@ -110,14 +115,31 @@ def randomized(seed):
     return '\n'.join(lines)
 
 def main():
+    parser=argparse.ArgumentParser(description="Simulate RV32 assembly and compare the retirement trace.")
+    parser.add_argument("program", nargs="?", type=Path, help="assembly file with a reachable halt: label")
+    parser.add_argument("--wave", action="store_true", help="write build/core.vcd")
+    parser.add_argument("--pause", type=int, default=0, help="insert periodic clock-enable pauses (0 or 1)")
+    args=parser.parse_args()
+    if args.wave and args.program is None:
+        parser.error("--wave requires an assembly program")
+    if args.pause not in (0,1):
+        parser.error("--pause must be 0 or 1")
+
     BUILD.mkdir(exist_ok=True)
     rtl=[str(p.relative_to(ROOT)) for p in sorted((ROOT/'rtl').glob('*.v'))]
-    for name in ('core','board','hazard'):
+    for name in ('core','hazard'):
         print(run(['iverilog','-g2012','-Wall','-s','tb_'+name,'-o',str(BUILD/(name+'.vvp')),*rtl,f'tests/tb_{name}.v']).strip())
-    demo,_,_=assemble((ROOT/'programs/demo.S').read_text())
-    write_hex(demo,ROOT/'programs/demo.hex')
+
+    if args.program is not None:
+        source_path=args.program if args.program.is_absolute() else ROOT/args.program
+        count,stats,_=check(source_path.stem,source_path.read_text(encoding='utf-8'),args.pause,wave=args.wave)
+        print(f"PASS {source_path.name}: {count} retirements; {stats}")
+        if args.wave:
+            print("Waveform written to build/core.vcd")
+        return
+
     results=[]
-    directed=(ROOT/'tests/directed.S').read_text()
+    directed=(ROOT/'tests/directed.S').read_text(encoding='utf-8')
     for pause in (0,1):
         n,c,regs=check('directed'+str(pause),directed,pause,6)
         assert regs[31]==0, 'reached bad label'
@@ -127,9 +149,8 @@ def main():
         n,c,_=check('random'+str(seed),randomized(seed),seed%2)
         results.append(f'PASS random seed={seed}: {n} retirements, {c["stalls"]} stalls')
     results.append(run(['vvp',str(BUILD/'hazard.vvp')]).strip())
-    results.append(run(['vvp',str(BUILD/'board.vvp')]).strip())
     report='\n'.join(results)+'\n'
-    (BUILD/'test_results.txt').write_text(report)
+    (BUILD/'test_results.txt').write_text(report,encoding='utf-8')
     print(report)
 
 if __name__=='__main__': main()

@@ -1,10 +1,7 @@
 build/
-impl/
 *.vcd
 *.vvp
 *.log
 *.rpt
-*.fs
-*.gprj.user
 __pycache__/
 .tools/

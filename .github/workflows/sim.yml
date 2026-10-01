@@ -9,9 +9,15 @@ jobs:
         with:
           python-version: '3.11'
       - run: sudo apt-get update && sudo apt-get install -y iverilog
-      - run: python scripts/test.py
+      - run: python -m unittest discover -s tests -p test_cli.py -v
+      - run: python scripts/test.py --regression
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: simulation-traces
-          path: build/*.trace
+          name: simulation-evidence
+          path: |
+            build/**/*.vcd
+            build/**/*.gtkw
+            build/**/*.csv
+            build/**/*.txt
+            build/**/*.trace

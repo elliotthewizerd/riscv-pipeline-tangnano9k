@@ -14,30 +14,54 @@ Hình lấy từ [bộ tài nguyên chính thức của tác giả](https://page
 
 **Đối chiếu RTL:** dự án khớp kiến trúc pipeline 5 tầng và cơ chế forwarding, stall load-use, flush branch/jump trong hình. RTL có thêm khối so sánh cho 6 loại branch, đường `jalr`/`auipc`, bypass WB→ID, tín hiệu valid và `ce`; vì vậy hình là sơ đồ tham khảo, không mô tả đầy đủ từng dây của RTL hiện tại. Xem [bảng đối chiếu khối, tín hiệu và đường đi của lệnh](docs/architecture.md).
 
-## Chạy mô phỏng
+## Chạy mô phỏng và tự kiểm chứng
 
-Cần Python 3.10+ và Icarus Verilog (`iverilog`, `vvp`) trong PATH. Chạy từ thư mục gốc dự án:
+Cần Python 3.10+, Icarus Verilog (`iverilog`, `vvp`) và GTKWave trong PATH.
 
-```powershell
+**Xem sóng RTL cạnh sóng kỳ vọng**, chạy từ thư mục gốc:
+
+```cmd
 python scripts/test.py
 ```
 
-Tests compare retired instructions and memory stores against a sequential reference model.
+Lệnh này chạy bài ASM ngắn, in kết quả cụ thể và tự mở GTKWave với các cặp `Obs...` / `Exp...` đã chọn sẵn. Kỳ vọng lấy từ [bảng 21 chu kỳ tính trước](tests/waveform.expected.csv). `Mismatch = 1` đánh dấu chu kỳ lệch. Xem [bảng giải thích từng chu kỳ và cách đọc sóng](docs/simulation.md).
 
-Để xem sóng của test directed (địa chỉ dừng lấy từ label `halt`):
+**Tự nhập ASM trong terminal:**
 
-```powershell
-python scripts/asm.py tests/directed.S build/directed.hex
-python -c "import sys; sys.path.insert(0,'scripts'); from asm import assemble; from pathlib import Path; print(assemble(Path('tests/directed.S').read_text())[1]['halt'])"
-# Thay HALT_PC bằng số vừa in:
-vvp build/core.vvp +ROM=build/directed.hex +STOP=HALT_PC +VCD
-# Mở build/core.vcd bằng GTKWave.
+```cmd
+python scripts/test.py --asm
 ```
+
+Dán các lệnh, kết thúc bằng một dòng `END`. Có thể thêm `# expect x3 = 30` hoặc `# expect mem[0] = 30` để tự đặt giá trị mong đợi. Báo cáo hiển thị giá trị đọc trực tiếp từ RTL cạnh kỳ vọng của bạn.
+
+**Hoặc sửa file [programs/my_program.S](programs/my_program.S) rồi chạy:**
+
+```cmd
+python scripts/test.py programs/my_program.S
+```
+
+Kết quả gồm mã máy, từng lệnh hoàn tất, các lần ghi bộ nhớ, cả 32 thanh ghi và VCD. Các file nằm trong `build/<tên_chương_trình>/`; bài mặc định dùng `build/waveform/`. Mở `report.txt` để đọc lại kết quả, `cycles.csv` để đối chiếu từng chu kỳ, `wave.vcd` cùng `waves.gtkw` để xem sóng.
+
+Nếu đang ở thư mục `scripts`, dùng `python test.py` thay cho `python scripts/test.py`. Thêm `--no-open` để chỉ xuất file. Bộ test tự động cũ được giữ riêng:
+
+```cmd
+python scripts/test.py --regression
+```
+
+[Hướng dẫn đầy đủ, chương trình mẫu và cách cố ý tạo sai lệch để kiểm tra công cụ](docs/simulation.md).
 
 ## Cấu trúc
 
 | Thư mục / file | Nội dung |
 |---|---|
 | `rtl/` | 20 module Verilog, mỗi file một module |
-| `tests/` | Core and hazard testbenches, assembly programs |
-| `scripts/` | Assembly assembler and simulation runner |
+| `tests/waveform.S`, `waveform.expected.csv` | Bài mẫu và sóng kỳ vọng cố định |
+| `tests/tb_core.v` | Mô phỏng core, lấy mẫu Obs/Exp, xuất trace và trạng thái cuối |
+| `tests/tb_hazard.v`, `directed.S` | Test hazard và chương trình regression |
+| `tests/test_cli.py` | Kiểm tra nhập ASM và phát hiện kỳ vọng sai |
+| `programs/my_program.S` | File để tự sửa lệnh và kết quả mong đợi |
+| `scripts/test.py` | Chạy bài sóng, nhập ASM hoặc chạy file ASM |
+| `scripts/waveform.py` | Đọc fixture, xuất CSV và chọn tín hiệu GTKWave |
+| `scripts/regression.py` | Bộ test tự động và mô hình ISA tuần tự đi kèm |
+| `scripts/asm.py` | Assembler cho tập lệnh hỗ trợ |
+| `docs/simulation.md` | Hướng dẫn tự quan sát và đối chiếu |

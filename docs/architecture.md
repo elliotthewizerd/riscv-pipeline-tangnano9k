@@ -88,7 +88,7 @@ Mọi lệnh được fetch qua PC → imem → IF/ID rồi giải mã ở ID.
 
 ## Kết quả kiểm tra
 
-Chạy `python scripts/test.py` trên RTL hiện tại:
+Chạy `python scripts/test.py --regression` trên RTL hiện tại:
 
 - Directed: 79 lệnh retire, 115 chu kỳ, 6 stall load-use, 13 redirect.
 - Directed có ngắt `ce`: cùng 79 lệnh, 6 stall, 13 redirect; 161 chu kỳ, trong đó 46 chu kỳ pause.
@@ -103,4 +103,4 @@ Xem dạng sóng chương trình directed:
 python scripts/test.py tests/directed.S --wave
 ```
 
-Mở `build/core.vcd` bằng GTKWave; quan sát `dut.PCF`, `dut.PCD/PCE/PCM/PCW`, `StallF/D`, `FlushD/E`, `FwdAE/BE`, `dut.PCSrcE` và `Ret*`.
+Mở `build/directed/wave.vcd` bằng GTKWave; quan sát `dut.PCF`, `dut.PCD/PCE/PCM/PCW`, `StallF/D`, `FlushD/E`, `FwdAE/BE`, `dut.PCSrcE` và `Ret*`.

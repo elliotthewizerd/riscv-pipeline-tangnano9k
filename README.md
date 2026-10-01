@@ -4,6 +4,16 @@ CPU RV32 5 tầng **IF → ID → EX → MEM → WB**, viết bằng Verilog, m�
 
 Đây là lõi học tập dùng một phần tập lệnh RV32I, không phải triển khai RV32I đầy đủ. Hỗ trợ `lw`, `sw`, toàn bộ 6 branch, `jal`, `jalr`, `lui`, `auipc`, các phép ALU thanh ghi/immediate. `j label` được assembler chuyển thành `jal x0, label`. Chưa có byte/halfword load/store, CSR, trap, interrupt, `ecall`, `ebreak`, `fence`, extension M/C, cache hay bus có wait-state.
 
+
+## Sơ đồ tham khảo
+
+[![Figure 7.61: Pipelined processor with full hazard handling](docs/images/harris-figure-7-61.png)](docs/images/harris-figure-7-61.pdf)
+
+**Nguồn:** Sarah L. Harris và David Harris, *Digital Design and Computer Architecture: RISC-V Edition*, ấn bản 1, Morgan Kaufmann / Elsevier, 2021, Chương 7, Figure 7.61: “Pipelined processor with full hazard handling”.
+Hình lấy từ [bộ tài nguyên chính thức của tác giả](https://pages.hmc.edu/harris/ddca/ddcarv.html); bản quyền hình thuộc Elsevier. Nhấn vào hình để mở PDF gốc.
+
+**Đối chiếu RTL:** dự án khớp kiến trúc pipeline 5 tầng và cơ chế forwarding, stall load-use, flush branch/jump trong hình. RTL có thêm khối so sánh cho 6 loại branch, đường `jalr`/`auipc`, bypass WB→ID, tín hiệu valid và `ce`; vì vậy hình là sơ đồ tham khảo, không mô tả đầy đủ từng dây của RTL hiện tại. Xem [bảng đối chiếu khối, tín hiệu và đường đi của lệnh](docs/architecture.md).
+
 ## Chạy mô phỏng
 
 Cần Python 3.10+ và Icarus Verilog (`iverilog`, `vvp`) trong PATH. Chạy từ thư mục gốc dự án:

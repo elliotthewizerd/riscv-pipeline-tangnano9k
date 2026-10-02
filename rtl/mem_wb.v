@@ -1,4 +1,9 @@
 `timescale 1ns/1ps
+// Thanh ghi pipeline MEM -> WB, chốt tại cạnh lên khi en=1.
+// Mang cả ALU, RD (dữ liệu load) và PC4 đến mux chọn kết quả ở WB.
+// PC/Rd đi cùng để xác định lệnh hoàn tất và thanh ghi được ghi.
+// Bus C[3:0] = {V, RegW, ResSrc[1:0]}.
+// rst đồng bộ xóa cả dữ liệu/điều khiển; en=0 giữ nguyên.
 module mem_wb(
   input clk,
   rst,

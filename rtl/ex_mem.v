@@ -1,4 +1,11 @@
 `timescale 1ns/1ps
+// Thanh ghi pipeline EX -> MEM, chốt tại cạnh lên khi en=1.
+// ALU: kết quả tính toán/địa chỉ; WD: dữ liệu rs2 đã forward cho sw.
+// PC4: địa chỉ trả về của JAL/JALR; PC: theo lệnh để xuất trace; Rd: đích.
+// Bus C[4:0] = {V, RegW, MemW, ResSrc[1:0]}.
+// rst đồng bộ ưu tiên hơn en; en=0 giữ nguyên mọi trường.
+// Không flush tầng này khi branch ở EX: lệnh branch và các lệnh già
+// hơn vẫn đi tiếp; chỉ các lệnh trẻ hơn ở IF/ID bị hủy.
 module ex_mem(
   input clk,
   rst,
